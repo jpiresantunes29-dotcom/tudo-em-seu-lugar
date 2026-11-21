@@ -17,11 +17,9 @@ Quem matou o professor Augusto Nakamura no baile de formatura da Tulane Universi
 
 ## Sobre
 
-*Tudo em seu Lugar* é o jogo do **Projeto DETETIVE (RA2)** da disciplina de
-**Resolução de Problemas com Lógica Matemática** da **PUCPR**. O caso
-(personagens, locais, itens, proposições e conclusão lógica) foi criado pela
-equipe nos slides do trabalho, e o jogo transforma essa história numa
-investigação jogável.
+*Tudo em seu Lugar* é um jogo de investigação em modo história, desenvolvido em
+Python + pygame. A história se passa num baile de formatura da Tulane University,
+onde o professor Augusto Nakamura é encontrado morto.
 
 Você controla a detetive **Helena Cortez**: anda pelos cenários em pixel art,
 examina pistas, conversa com os personagens, interroga suspeitas e, no fim,
@@ -31,10 +29,10 @@ cerca de **15 a 17 minutos**.
 ## Destaques
 
 - **Modo história em 7 capítulos**, com cenas, diálogos em balões, imagens em tela cheia e um relógio que acompanha a data e a hora de cada momento do caso.
-- **Ilustrações da equipe** usadas nas cenas, nas fichas e nos retratos dos personagens.
+- **Ilustrações originais** nas cenas, nas fichas e nos retratos dos personagens.
 - **Partidas diferentes a cada vez**: nomes, idades, profissões e álibis das suspeitas, traços da assassina nas câmeras, lugar das pistas, pistas falsas e eventos são sorteados. Um *código do caso* permite repetir a mesma partida.
 - **Decisões com consequência**: liberar ou acusar cada suspeita, arriscar a acusação a qualquer momento, pedir dicas, escolher o motivo. Errar custa pontos, tempo e credibilidade.
-- **Caderno do detetive** com as proposições dos slides (A a AM), fichas de itens e locais (quem, quando, para quê) e as regras de inferência, tudo liberado só quando é descoberto.
+- **Caderno do detetive** com proposições lógicas (A a AM), fichas de itens e locais (quem, quando, para quê) e as regras de inferência, tudo liberado só quando é descoberto.
 - **Salvar e continuar**, como num videogame, com salvamento automático no início de cada capítulo.
 - **Trilha sonora original** gerada pelo próprio código e **efeitos gravados em domínio público (CC0)**: chuva, trovão, passos, portas, telefone, latidos.
 - **Roda num arquivo só** (`tudo_em_seu_lugar.py`), no computador ou no celular Android, com controles na tela para toque.
@@ -50,7 +48,7 @@ cerca de **15 a 17 minutos**.
 | ![Caderno](docs/screenshots/06-caderno.jpg) | ![Acusação](docs/screenshots/07-acusacao.jpg) |
 | *Caderno com as proposições descobertas* | *Acusação com o perfil da assassina ao lado* |
 | ![Cena em tela cheia](docs/screenshots/00-cena-salao.jpg) | ![Tela final](docs/screenshots/08-final.jpg) |
-| *Ilustrações da equipe em tela cheia* | *Tela final com estatísticas* |
+| *Ilustrações em tela cheia* | *Tela final com estatísticas* |
 
 ## Como jogar
 
@@ -110,19 +108,17 @@ botões da barra inferior também funcionam por toque.
 
 ## Lógica do caso
 
-O jogo segue a prova lógica dos slides da equipe. As proposições atômicas vão
-de **A** a **AM** (por exemplo, `AJ` = *a assassina do professor Nakamura era
-Helena Cortez*), e as deduções usam Modus Ponens, Silogismo Disjuntivo,
-Conjunção, Simplificação, Contraposição e Bicondicional até a conclusão:
+O jogo usa **lógica proposicional** como mecânica central. As proposições
+atômicas vão de **A** a **AM** (por exemplo, `AJ` = *a assassina do professor
+Nakamura era Helena Cortez*), e as deduções usam Modus Ponens, Silogismo
+Disjuntivo, Conjunção, Simplificação, Contraposição e Bicondicional até a
+conclusão:
 
 ```text
 AJ ∧ AL ∧ AM
 A assassina do professor Augusto Nakamura era Helena Cortez, o caso foi
 solucionado e Helena Cortez foi absolvida devido à sua condição de saúde mental.
 ```
-
-Veja em [`docs/REQUISITOS.md`](docs/REQUISITOS.md) como o jogo atende ao
-enunciado do trabalho e à rubrica de avaliação.
 
 ## Para desenvolvedores
 
@@ -139,12 +135,12 @@ tudo-em-seu-lugar/
 │   ├── 05_motor.py           #   mapas, sprites em pixel art, luz, fontes
 │   └── 06_jogo.py            #   cenas, interface, HUD, salvar/carregar, laço principal
 ├── assets/
-│   ├── imagens/              # ilustrações da equipe (cenas, itens, locais, retratos)
+│   ├── imagens/              # ilustrações (cenas, itens, locais, retratos)
 │   ├── fontes/               # Special Elite, Pixelify Sans e símbolos (com licenças)
 │   └── sons/                 # efeitos gravados CC0 (OGG)
 ├── tools/build.py            # junta src/ + assets/ em tudo_em_seu_lugar.py
 ├── tests/partida_completa.py # robô que joga a partida inteira sem janela
-└── docs/                     # capturas e requisitos do trabalho
+└── docs/                     # capturas de tela
 ```
 
 As partes de `src/` não são módulos independentes: o build as concatena na ordem
@@ -172,20 +168,14 @@ funcionam, se nenhum texto sai das caixas, se a derrota e a acusação forçada
 acontecem e se 400 sorteios diferentes sempre posicionam todas as pistas.
 O mesmo teste roda no GitHub Actions a cada push.
 
-## Equipe
+## Autor
 
-- Eduardo Yonegura Hashimoto
-- Guilherme Sakagami Spitzner
-- João Pedro Pires Antunes
-- Letícia Beatriz Silva de Morais
-
-Projeto acadêmico da PUCPR, Engenharia de Software, orientado pela
-Prof.ª Maria Angela Roveredo.
+Desenvolvido por **João Pedro Pires Antunes**.
 
 ## Créditos e licenças
 
 - **Código:** licença [MIT](LICENSE).
-- **História, personagens e ilustrações:** criados pela equipe para o trabalho; todos os direitos reservados aos autores.
+- **História e personagens:** todos os direitos reservados.
 - **Fontes:** [Special Elite](https://fonts.google.com/specimen/Special+Elite) (Apache 2.0), [Pixelify Sans](https://fonts.google.com/specimen/Pixelify+Sans) (SIL OFL 1.1) e um recorte de símbolos do DejaVu Sans Bold (licença Bitstream Vera/DejaVu). As licenças estão em `assets/fontes/`.
 - **Efeitos sonoros gravados:** domínio público (CC0 1.0) — [Kenney](https://kenney.nl) (passos e trinco), [wyzowl/sfx-kit](https://github.com/wyzowl/sfx-kit) (cliques, trovão, telefone, páginas, estática, impactos) e a coletânea [CC0-Public-Domain-Sounds](https://github.com/lavenderdotpet/CC0-Public-Domain-Sounds) (chuva, passos molhados, porta quebrando e latidos). Detalhes em [`assets/sons/CREDITOS.md`](assets/sons/CREDITOS.md).
 - **Trilhas musicais e vozes dos balões:** originais, sintetizadas pelo próprio código.

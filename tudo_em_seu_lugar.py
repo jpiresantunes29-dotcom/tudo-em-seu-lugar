@@ -2,11 +2,7 @@
 """
 ==========================================================================
   TUDO EM SEU LUGAR — Jogo de investigação em MODO HISTÓRIA
-  Projeto DETETIVE (RA2) — Resolução de Problemas com Lógica Matemática
-  PUCPR — Prof.ª Maria Angela Roveredo
-
-  Equipe: Eduardo Yonegura Hashimoto, Guilherme Sakagami Spitzner,
-          João Pedro Pires Antunes e Letícia Beatriz Silva de Morais
+  Desenvolvido por João Pedro Pires Antunes
 
   COMO EXECUTAR
     1) Instale o pygame (uma vez só):   pip install pygame
