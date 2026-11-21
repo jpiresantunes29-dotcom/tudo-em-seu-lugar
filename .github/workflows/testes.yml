@@ -1,0 +1,27 @@
+name: Testes
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  partida-completa:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        resolucao: ["960x540", "1920x1080"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Instalar dependências
+        run: pip install -r requirements.txt
+      - name: O arquivo do jogo está em dia com src/ e assets/
+        run: |
+          python tools/build.py /tmp/gerado.py
+          cmp /tmp/gerado.py tudo_em_seu_lugar.py
+      - name: Jogar a partida inteira (sem janela)
+        env:
+          RES: ${{ matrix.resolucao }}
+        run: python tests/partida_completa.py tudo_em_seu_lugar.py /tmp/capturas

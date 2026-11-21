@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# gerados pelo jogo e pelos testes
+save_tudo_em_seu_lugar.json
+recordes_tudo_em_seu_lugar.json
+tests/capturas/
+sons/
